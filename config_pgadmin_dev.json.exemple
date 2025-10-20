@@ -1,0 +1,13 @@
+{
+    "Servers": {
+        "1": {
+            "Name": "PostgreSQL Service",
+            "Group": "Docker Servers",
+            "Port": 5432,
+            "Username": "mettre la même valeur que la variable POSTGRES_USER",
+            "Host": "airflow_postgres_dev",
+            "SSLMode": "prefer",
+            "MaintenanceDB": "mettre la même valeur que la variable POSTGRES_DB"
+        }
+    }
+}
