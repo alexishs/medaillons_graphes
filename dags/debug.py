@@ -1,6 +1,6 @@
 import random
 from metier import utils
-from metier.conversion_csv_parquet import convertire_donnees_brutes_vers_bronze
+from metier.bronze import traitement_bronze
 
 utils.definir_en_test()
 
@@ -22,4 +22,4 @@ def generer_csv()-> None:
 
 utils.creer_repertoires()
 generer_csv()
-#convertire_donnees_brutes_vers_bronze()
+traitement_bronze()

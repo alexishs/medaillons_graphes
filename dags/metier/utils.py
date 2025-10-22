@@ -2,6 +2,7 @@ from __future__ import annotations
 import os
 from dotenv import load_dotenv
 from pathlib import Path
+import pandas
 
 REPERTOIRE_DONNEES_BRUTES = 'data/donnees_brutes'
 REPERTOIRE_BRONZE = 'data/bronze'
@@ -25,3 +26,7 @@ def creer_chemin_base(chemin_repertoire: str)-> None:
 def creer_repertoires():
     creer_chemin_base(REPERTOIRE_DONNEES_BRUTES)
     creer_chemin_base(REPERTOIRE_BRONZE)
+
+def conversion_csv_vers_parquet(fichier_csv_source: str, fichier_parquet_destination: str)-> None:
+    df = pandas.read_csv(fichier_csv_source)
+    df.to_parquet(fichier_parquet_destination)
