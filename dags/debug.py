@@ -22,4 +22,4 @@ def generer_csv()-> None:
 
 utils.creer_repertoires()
 generer_csv()
-convertire_donnees_brutes_vers_bronze()
+#convertire_donnees_brutes_vers_bronze()
