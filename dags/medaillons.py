@@ -4,6 +4,7 @@ from airflow.operators.python import PythonOperator
 from datetime import datetime #, timedelta
 from metier import utils
 from metier.bronze import traitement_bronze
+from metier.silver import traitement_silver
 
 default_args = {
     "owner": "airflow",
@@ -13,9 +14,6 @@ default_args = {
 
 def initialisation()-> None:
     utils.creer_repertoires()
-
-def traitement_silver()-> None:
-    pass
 
 def traitement_gold()-> None:
     pass
