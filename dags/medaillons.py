@@ -5,6 +5,7 @@ from datetime import datetime #, timedelta
 from metier import utils
 from metier.bronze import traitement_bronze
 from metier.silver import traitement_silver
+from metier.gold import traitement_gold
 
 default_args = {
     "owner": "airflow",
@@ -13,10 +14,7 @@ default_args = {
 }
 
 def initialisation()-> None:
-    utils.creer_repertoires()
-
-def traitement_gold()-> None:
-    pass
+    utils.initialiser_repertoires()
 
 with DAG(
     dag_id="gestion_medaillons",
