@@ -23,12 +23,13 @@ def traitement_silver()-> None:
         nb_enreg_partition = math.ceil(taille_df / nb_partitions)
         indice_partition = 0
         indice_debut = 0
+        #TODO: utiliser cette structure à la place du while : for indice_debut in range(0, taille_df, nb_enreg_partition):
         while (indice_debut < (taille_df - 1)):
             indice_fin = indice_debut + nb_enreg_partition
             df_partition = df.iloc[indice_debut:indice_fin]
-            repertoire_fichier = f"{chemin_destination_base}/{nom_repertoire_partition}_{indice_partition}"
+            repertoire_fichier = f"{chemin_destination_base}/{nom_repertoire_partition}={indice_partition}"
             Path.mkdir(Path(repertoire_fichier), parents=True, exist_ok=True)
-            df_partition.to_parquet(f"{repertoire_fichier}/{nom_fichier}")
+            df_partition.to_parquet(f"{repertoire_fichier}/{nom_fichier}", index=False)
             indice_debut = indice_fin + 1
             indice_partition += 1
 
@@ -59,12 +60,12 @@ def traitement_silver()-> None:
     #     8,
     #     'noeuds.parq'
     # )
-    df_noeuds.to_parquet(f"{utils.chemin_base(utils.REPERTOIRE_SILVER)}/noeuds.parq")
+    df_noeuds.to_parquet(f"{utils.chemin_base(utils.REPERTOIRE_SILVER)}/noeuds.parq", index=False)
 
     partitioner_df_en_fichiers_parquets(
         df_relations,
         f"{utils.chemin_base(utils.REPERTOIRE_SILVER)}/relations",
-        'partition=',
+        'partition',
         8,
         'relations.parq'
     )
