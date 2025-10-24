@@ -6,6 +6,7 @@ import pandas
 
 REPERTOIRE_DONNEES_BRUTES = 'data/donnees_brutes'
 REPERTOIRE_BRONZE = 'data/bronze'
+REPERTOIRE_SILVER = 'data/silver'
 
 def definir_en_test()-> None:
     os.environ['TEST'] = str(True)
@@ -26,6 +27,7 @@ def creer_chemin_base(chemin_repertoire: str)-> None:
 def creer_repertoires():
     creer_chemin_base(REPERTOIRE_DONNEES_BRUTES)
     creer_chemin_base(REPERTOIRE_BRONZE)
+    creer_chemin_base(REPERTOIRE_SILVER)
 
 def conversion_csv_vers_parquet(fichier_csv_source: str, fichier_parquet_destination: str)-> None:
     df = pandas.read_csv(fichier_csv_source)
