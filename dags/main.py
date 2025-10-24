@@ -27,7 +27,7 @@ def generer_csv()-> None:
                     numero_precedent = numero
 
 utils.initialiser_repertoires()
-generer_csv() # Utilisable uniquement ici
+generer_csv()
 traitement_bronze()
 traitement_silver()
 traitement_gold()
