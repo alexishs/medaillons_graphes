@@ -8,7 +8,8 @@ utils.definir_en_test()
 
 def generer_csv()-> None:
     
-    liste_entiers = list(range(1,1_000_000))
+    #trop lourd liste_entiers = list(range(1,1_000_000))
+    liste_entiers = list(range(1,10000))
     with open(utils.chemin_base(f"{utils.REPERTOIRE_DONNEES_BRUTES}/noeuds.csv"), mode='w', encoding='utf-8') as fichier:
         fichier.write('id_noeud,type_noeud,nom_noeud\n')
         for numero in liste_entiers:
@@ -26,7 +27,7 @@ def generer_csv()-> None:
                     numero_precedent = numero
 
 utils.initialiser_repertoires()
-# generer_csv()
-# traitement_bronze()
-# traitement_silver()
+generer_csv() # Utilisable uniquement ici
+traitement_bronze()
+traitement_silver()
 traitement_gold()
