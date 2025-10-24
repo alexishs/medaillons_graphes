@@ -1,4 +1,3 @@
-from __future__ import annotations
 import math
 from pathlib import Path
 import great_expectations as gx
@@ -64,8 +63,8 @@ def traitement_silver()-> None:
 
     partitioner_df_en_fichiers_parquets(
         df_relations,
-        utils.chemin_base(utils.REPERTOIRE_SILVER),
-        'partition',
+        f"{utils.chemin_base(utils.REPERTOIRE_SILVER)}/relations",
+        'partition=',
         8,
         'relations.parq'
     )
