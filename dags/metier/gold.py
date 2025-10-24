@@ -38,7 +38,11 @@ def traitement_gold()-> None:
     })
     df_relations.to_csv(f"{utils.chemin_base(utils.REPERTOIRE_GOLD)}/edges.csv", index=False)
 
-    driver = GraphDatabase.driver('bolt://localhost:7687', auth=("neo4j", "neo4j"))
+    if utils.en_test():
+        hote = os.getenv('HOTE_NEO4J_DEBUG')
+    else:
+        hote = 'neo4j_dev'
+    driver = GraphDatabase.driver(f"bolt://{hote}:7687", auth=("neo4j", "neo4j"))
 
     # c'est trèèèèèèèèèèèèèèèèèèèèès long avec 1M de noeuds !!!!
     with driver.session() as session:
