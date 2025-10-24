@@ -6,7 +6,4 @@ USER root
 RUN usermod -u "$AIRFLOW_UID" -g 0 airflow && chown "$AIRFLOW_UID":0 -R /home/airflow && chown "$AIRFLOW_UID":0 -R /opt/airflow
 
 USER airflow
-# pas nécessaire RUN bash -c "mkdir /opt/airflow/dags && mkdir /opt/airflow/logs && mkdir /opt/airflow/duckdb && mkdir /opt/airflow/warehouse && mkdir /opt/airflow/exports"
-# pas nécessaire l'utilisateur airflow éxiste déjà ds l'image d'origine ENV PATH="/home/app_user/.local/bin:${PATH}"
-
-RUN pip install --no-cache-dir pyspark pandas fastparquet dotenv
+RUN pip install --no-cache-dir pyspark pandas fastparquet dotenv great_expectations
