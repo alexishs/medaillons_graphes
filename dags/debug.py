@@ -2,6 +2,7 @@ import random
 from metier import utils
 from metier.bronze import traitement_bronze
 from metier.silver import traitement_silver
+from metier.gold import traitement_gold
 
 utils.definir_en_test()
 
@@ -24,7 +25,8 @@ def generer_csv()-> None:
                 else:
                     numero_precedent = numero
 
-utils.creer_repertoires()
+utils.initialiser_repertoires()
 # generer_csv()
 # traitement_bronze()
-traitement_silver()
+# traitement_silver()
+traitement_gold()
