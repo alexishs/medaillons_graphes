@@ -13,8 +13,8 @@ x-airflow-common: &airflow-common
   depends_on:
     airflow_postgres_dev:
       condition: service_healthy
-    neo4j_dev:
-      condition: service_healthy
+    # neo4j_dev:
+    #   condition: service_healthy
   volumes:
     - ./dags:/opt/airflow/dags
     - ./logs_airflow:/opt/airflow/logs
