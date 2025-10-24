@@ -20,8 +20,10 @@ with DAG(
     dag_id="gestion_medaillons",
     default_args=default_args,
     description="Gestion des données statiques",
-    # mode manuel schedule_interval=timedelta(days=15),
-    start_date=datetime(2024, 6, 1),
+    # mode manuel
+    # Exemple de planification : une fois tous les 15 jours…
+    # schedule_interval=timedelta(days=15),
+    start_date=datetime(2025, 1, 1),
     catchup=False
 ) as dag:
     run_initialisation = PythonOperator(
